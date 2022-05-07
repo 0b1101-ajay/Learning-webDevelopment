@@ -7,28 +7,35 @@
 }
 
 html{
-    font-size: 62.5%;
+    font-size: 72.5%;
 }
 
 .container{
     width: 100%;
     height: 100vh;
-    /* background-image: url(background.png);
-    background: linear-gradient(rgba(31,7,7,.7), rgba(0,0,0,0.7)); */
-    background: linear-gradient(rgba(114, 166, 121, 0.7), rgba(0,0,0,0.7)), url(/images/background.png);
+    background: linear-gradient(rgba(114, 166, 121, 0.7), rgba(0,0,0,0.7)), url(images/background.png);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    perspective: 100rem;
 
 }
 
-.form-wrapper{
+.forms-wrapper{
+    transform-style: preserve-3d;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: calc(50% - 17.5rem);
+    left: calc(50% - 25rem);
+    transform: rotateY(14deg);
+    transition: transform 0.5s, left 0.5s;
 }
 
-.form-wrapper form{
+.forms-wrapper.change{
+    transform: rotateY(100deg);
+    left: calc(50% + 25rem);
+}
+
+.forms-wrapper form{
     width: 50rem;
     height: 35rem;
     background-color: rgba(39, 123, 116, 0.925);
@@ -36,18 +43,32 @@ html{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    box-shadow: .1rem .1rem .1rem #ccc inset 1rem -.1rem .1rem #ccc inset;
+    box-shadow: 0.1rem 0.1rem 0.1rem #ccc inset, -0.1rem -0.1rem 0.1rem #ccc inset;
+    position: absolute;
+}
+
+.signup-form{
+    transform: rotateY(270deg) translateZ(25rem) translateX(-25rem);
 }
 
 form a{
-    position: absolute;
     top: 2rem;
-    left: 2rem;
+    position: absolute;
     background-color: white;
     font-weight: 600;
     text-transform: uppercase;
-    color: rgb(39, 123, 116);
+    color: rgb(58, 115, 110);
     letter-spacing: .2rem;
+}
+
+.signin-btn{
+    right: 2rem;
+    padding: .5rem 3rem 0.5rem 1rem;
+    border-radius: .5rem 100% 100% .5rem;
+}
+
+.signup-btn{
+    left: 2rem;
     padding: .5rem 1rem 0.5rem 3rem;
     border-radius: 100% .5rem .5rem 100%;
 }
@@ -59,12 +80,12 @@ form h2{
     color: #fff;
 }
 
-.input-wrapper{
+.inputs-wrapper{
     display: flex;
     flex-direction: column;
 }
 
-.input-wrapper input{
+.inputs-wrapper input{
     width: 25rem;
     height: 3rem;
     padding: 0.5rem 1rem;
@@ -77,12 +98,12 @@ form h2{
     outline: none;
 }
 
-.input-wrapper input::placeholder{
+.inputs-wrapper input::placeholder{
     color: #fff;
     font-weight: 300;
 }
 
-.input-wrapper input[type="submit"]{
+.inputs-wrapper input[type="submit"]{
     background-color: #fff;
     color: rgba(39, 123, 116, 0.925);
     font-weight: 900;
