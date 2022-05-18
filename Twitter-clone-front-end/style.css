@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-page{
+    display: flex;
+    justify-content: space-around;
+}
+
+.left{
+    height: 100vh;
+}
+
+.left-content{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
